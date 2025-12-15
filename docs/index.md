@@ -1,4 +1,4 @@
-<h1 class="page-title" data-anim="page-title"><span>Model Instancing 文档</span></h1>
+<h1 class="page-title" data-anim="page-title"><span>ModelInstancing</span></h1>
 
 <div class="home-hero" id="home-hero">
   <div class="home-bg" data-anim="bg"></div>
