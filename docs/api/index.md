@@ -1,4 +1,4 @@
-# ModelInstancedPrimitive API 分组入口
+# ModelInstancedPrimitive API
 
 快速导航到各功能组的单独方法页，并给出常用起步示例。
 

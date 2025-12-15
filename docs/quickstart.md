@@ -50,7 +50,7 @@ primitive.setSelectionWidth(2.5)
 ## API 全量入口（默认展开）
 以下分组直接链接到对应文档，便于快速跳转：
 
-- 概览：[`ModelInstancedPrimitive`](/api/model-instanced-primitive)
+- 概览：[`ModelInstancedPrimitive`](/api/)
 - 构造与资源：[`constructor`](/api/constructor)、[`loadModel`](/api/load-model)
 - 实例管理：[`addInstance`](/api/add-instance)、[`addInstances`](/api/add-instances)、[`getInstances`](/api/get-instances)、[`updateInstanceMatrix`](/api/update-instance-matrix)、[`updateInstanceMatricesBatch`](/api/update-instance-matrices-batch)、[`updateInstanceMatrices`](/api/update-instance-matrices)
 - 动画：[`getAnimations`](/api/get-animations)、[`getAnimationsInfo`](/api/get-animations-info)、[`playAnimation`](/api/play-animation)、[`pauseAnimation`](/api/pause-animation)、[`setAnimationUpdateInterval`](/api/set-animation-update-interval)、[`setLoopTransitionDuration`](/api/set-loop-transition-duration)、[`getLoopTransitionDuration`](/api/get-loop-transition-duration)、[`setInstanceAnimation`](/api/set-instance-animation)、[`setAllInstancesAnimation`](/api/set-all-instances-animation)
@@ -60,6 +60,6 @@ primitive.setSelectionWidth(2.5)
 - 生命周期：[`destroy`](/api/destroy)、[`isDestroyed`](/api/is-destroyed)
 
 ## 需要更多？
-- 查看完整示例与注意事项：[`/api/model-instanced-primitive`](/api/model-instanced-primitive)
-- 返回首页：[`/`](/)
+- [查看完整示例与注意事项](/api/)
+- [返回首页](/)
 
