@@ -17,29 +17,31 @@
       <div class="orbit-particle"></div>
     </div>
     <div class="instancing-nodes">
-      <div class="node cube" data-anim="cube" style="--i:0">
-        <div class="node-glow"></div>
-        <div class="node-face"></div>
+      <!-- 源模型 -->
+      <div class="model-node model-node--source" data-anim="cube" style="--i:0">
+        <div class="model-mesh model-mesh--source"></div>
+        <div class="node-badge">源模型</div>
       </div>
-      <div class="node cube" data-anim="cube" style="--i:1">
-        <div class="node-glow"></div>
-        <div class="node-face"></div>
+      <!-- 实例（拷贝自源模型） -->
+      <div class="model-node model-node--instance" data-anim="cube" style="--i:1">
+        <div class="model-mesh model-mesh--instance"></div>
+        <div class="node-badge">实例</div>
       </div>
-      <div class="node cube" data-anim="cube" style="--i:2">
-        <div class="node-glow"></div>
-        <div class="node-face"></div>
+      <div class="model-node model-node--instance" data-anim="cube" style="--i:2">
+        <div class="model-mesh model-mesh--instance"></div>
+        <div class="node-badge">实例</div>
       </div>
-      <div class="node cube" data-anim="cube" style="--i:3">
-        <div class="node-glow"></div>
-        <div class="node-face"></div>
+      <div class="model-node model-node--instance" data-anim="cube" style="--i:3">
+        <div class="model-mesh model-mesh--instance"></div>
+        <div class="node-badge">实例</div>
       </div>
-      <div class="node cube" data-anim="cube" style="--i:4">
-        <div class="node-glow"></div>
-        <div class="node-face"></div>
+      <div class="model-node model-node--instance" data-anim="cube" style="--i:4">
+        <div class="model-mesh model-mesh--instance"></div>
+        <div class="node-badge">实例</div>
       </div>
-      <div class="node cube" data-anim="cube" style="--i:5">
-        <div class="node-glow"></div>
-        <div class="node-face"></div>
+      <div class="model-node model-node--instance" data-anim="cube" style="--i:5">
+        <div class="model-mesh model-mesh--instance"></div>
+        <div class="node-badge">实例</div>
       </div>
     </div>
     <div class="instancing-orbs">
@@ -720,37 +722,78 @@ onMounted(() => {
   margin-top: 6px;
 }
 
-.node {
+.model-node {
   position: relative;
-  height: 80px;
-  border-radius: 12px;
-  background: radial-gradient(circle at 30% 30%, rgba(125, 211, 252, 0.3), rgba(59, 130, 246, 0.14));
-  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.model-mesh {
+  position: relative;
+  width: 26px;
+  height: 20px;
+  margin: 0 auto 2px;
+  border-radius: 6px;
+  background: linear-gradient(160deg, rgba(59, 130, 246, 0.95), rgba(14, 165, 233, 0.9));
   box-shadow:
-    0 14px 28px rgba(15, 23, 42, 0.35),
-    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+    0 0 0 1px rgba(248, 250, 252, 0.5),
+    0 6px 12px rgba(15, 23, 42, 0.35);
+}
+
+.model-mesh::before,
+.model-mesh::after {
+  content: '';
+  position: absolute;
+  inset: 18% 18% 32%;
+  border-radius: 3px;
+  border: 1px solid rgba(248, 250, 252, 0.5);
+  box-shadow: inset 0 0 0 1px rgba(15, 23, 42, 0.2);
+}
+
+.model-mesh::after {
+  inset: 40% 12% 10%;
+  opacity: 0.7;
+}
+
+.model-mesh--source {
+  width: 52px;
+  height: 40px;
+  background: linear-gradient(150deg, rgba(234, 179, 8, 0.2), rgba(234, 179, 8, 0.9));
+  box-shadow:
+    0 12px 26px rgba(234, 179, 8, 0.6),
+    0 0 0 1px rgba(254, 249, 195, 0.9);
+}
+
+.model-mesh--instance {
+  width: 52px;
+  height: 40px;
+  background: linear-gradient(150deg, rgba(59, 130, 246, 0.95), rgba(14, 165, 233, 0.95));
+}
+
+.node-badge {
+  position: absolute;
+  left: 72px;
+  top: 48px;
+  padding: 2px 8px;
+  border-radius: 999px;
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  background: transparent;
+  color: var(--hero-text-primary);
+}
+
+.model-node--instance {
+  opacity: 0.96;
+}
+
+.model-node {
+  position: relative;
+  padding: 6px 0 18px;
   transform-style: preserve-3d;
-  transition: box-shadow 0.3s ease;
 }
 
-.node-glow {
-  position: absolute;
-  inset: 12px;
-  border-radius: 10px;
-  background: linear-gradient(135deg, rgba(34, 211, 238, 0.2), rgba(59, 130, 246, 0.18));
-  filter: blur(16px);
-}
-
+.node-glow,
 .node-face {
-  position: absolute;
-  inset: 10px;
-  border-radius: 9px;
-  background:
-    linear-gradient(145deg, rgba(226, 232, 240, 0.12), rgba(125, 211, 252, 0.12)),
-    radial-gradient(circle at 70% 20%, rgba(14, 165, 233, 0.35), transparent 40%),
-    radial-gradient(circle at 20% 80%, rgba(79, 70, 229, 0.35), transparent 45%);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.12);
+  display: none;
 }
 
 .instancing-orbs {
